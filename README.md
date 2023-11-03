@@ -15,6 +15,6 @@ For help getting started with Flutter development, view the
 [online documentation](https://docs.flutter.dev/), which offers tutorials,
 samples, guidance on mobile development, and a full API reference.
 
-![](Screenshot_1699048104.png)
-![](Screenshot_1699048117.png)
-![](Screenshot_1699048133.png)
+<img src="assets/Screenshot_1699048104.png" height="250">
+<img src="assets/Screenshot_1699048117.png" height="250">
+<img src="assets/Screenshot_1699048133.png" height="250">
