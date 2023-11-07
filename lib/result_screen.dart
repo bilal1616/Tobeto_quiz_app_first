@@ -34,8 +34,7 @@ class ResultScreen extends StatelessWidget {
                 Container(
                   padding: EdgeInsets.all(10),
                   decoration: BoxDecoration(
-                    color: Colors
-                        .white, // Doğru cevap sayısı kutusunun arka plan rengi
+                    color: Colors.white, // Doğru cevap sayısı kutusunun arka plan rengi
                     borderRadius: BorderRadius.circular(10),
                   ),
                   child: Text(
