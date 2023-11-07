@@ -11,8 +11,7 @@ class QuestionScreen extends StatefulWidget {
 }
 
 class _QuestionScreenState extends State<QuestionScreen> {
-  final quizQuestions =
-      QuizQuestions(); // QuizQuestions sınıfından bir nesne oluşturulur.
+  final quizQuestions = QuizQuestions(); // QuizQuestions sınıfından bir nesne oluşturulur.
   List<QuizQuestion> questions = [];
   int currentQuestionIndex = 0; // Şu anki sorunun indeksi
   int correctAnswers = 0; // Doğru cevap sayısı
