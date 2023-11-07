@@ -8,12 +8,14 @@ class QuestionScreen extends StatefulWidget {
 
   @override
   _QuestionScreenState createState() => _QuestionScreenState();
+  // bu kod parçası, widget'in state nesnesini oluşturur bir sınıfın içinde kullanılan bir metodu yeniden (override) tanımlar.
+  // ve widget ile bu state nesnesi arasında bir bağlantı kurar.
 }
 
 class _QuestionScreenState extends State<QuestionScreen> {
   final quizQuestions = QuizQuestions(); // QuizQuestions sınıfından bir nesne oluşturulur.
-  List<QuizQuestion> questions = [];
-  int currentQuestionIndex = 0; // Şu anki sorunun indeksi
+  List<QuizQuestion> questions = []; //"questions" adında bir boş bir Liste oluşturur ve bu Liste,"QuizQuestion" türünden nesneleri depolamak için kullanılır.
+  int currentQuestionIndex = 0; // Mevcut sorunun indeksi
   int correctAnswers = 0; // Doğru cevap sayısı
 
   @override
@@ -41,7 +43,7 @@ class _QuestionScreenState extends State<QuestionScreen> {
         currentQuestionIndex++;
       });
     } else {
-      // Soru metinlerini, seçilen cevapları ve doğru cevapları içeren sonuç ekranına yönlendirir.
+      // Bu kod satırı,"questions" listesindeki her sorunun metnini alarak yeni bir metin (String) listesi olan "questionTexts" oluşturur.
       final List<String> questionTexts = questions.map((q) => q.question).toList();
       Navigator.push(
         context,
@@ -52,9 +54,10 @@ class _QuestionScreenState extends State<QuestionScreen> {
             correctAnswers: questions.map((q) => q.correctAnswer).toList(),
           ),
         ),
-      );
-    }
+      ); // "ResultScreen" bileşeni,"questions" (soru metinleri),"selectedAnswers" (seçilen cevaplar) ve "correctAnswers" (doğru cevaplar)
+    } // gibi verileri alarak sonuç ekranını hazırlar ve kullanıcıyı bu ekrana yönlendirir.
 
+    
     // Seçilen cevapları saklamak için listeye ekler.
     selectedAnswers.add(selectedAnswer);
   }
@@ -73,16 +76,19 @@ class _QuestionScreenState extends State<QuestionScreen> {
             Padding(
               padding: const EdgeInsets.all(16.0), // Soru metni etrafına biraz boşluk ekler.
               child: Text("Soru ${currentQuestionIndex + 1}: ${question.question}",
-                style: TextStyle(
-                    fontSize: 19, color: Colors.white), // Soru metni stil
+                style: TextStyle(fontSize: 19, color: Colors.white), // Soru metni stil
                 textAlign: TextAlign.center,
               ),
             ),
             SizedBox(height: 10),
             Column(
               children: question.answers.asMap().entries.map((entry) {
-                final index = entry.key;
-                final answer = entry.value;
+                // `asMap()` fonksiyonu, listenin her bir öğesine bir indeks atar ve bu indekslerle birlikte öğeleri çiftler halinde döndürür.
+                // `question.answers` listesindeki her öğe için bir işlem yapar ve bu öğeleri bir harita (map) yapısında saklar.
+                // bu harita yapısındaki her çifti `map()` fonksiyonu ile işleyerek yeni bir liste oluşturur.
+                // `entry` değişkeni, her bir liste öğesini ve onun indeksini temsil eder.
+                final index = entry.key; //`entry.key`, `asMap()` kullanılarak indeksin elde edildiği çift yapının bir parçasıdır.
+                final answer = entry.value; // `entry.value`, `asMap()` kullanılarak öğenin değerini temsil eder.
                 final option = String.fromCharCode(65 + index); // A, B, C, D gibi seçenek harfini oluşturur.
 
                 return Column(

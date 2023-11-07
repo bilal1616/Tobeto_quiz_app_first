@@ -12,12 +12,12 @@ class ResultScreen extends StatelessWidget {
   }) : super(key: key);
 
   @override
-  Widget build(BuildContext context) {
-    final int totalQuestions = questions.length; // Toplam soru sayısı
+  Widget build(BuildContext context) { //bir Flutter widget sınıfının `build` metodunu yeniden tanımlar. Bu metot, widget'in görünümünü oluşturur.
+    final int totalQuestions = questions.length; // Toplam soru sayısı ve soru listesinin uzunluğunu kontrol eder.
     final int correctCount = selectedAnswers.where((answer) {
       final index = selectedAnswers.indexOf(answer);
       return answer == correctAnswers[index];
-    }).length; // Doğru cevap sayısı
+    }).length; // Yukarıdaki satır, doğru cevap sayısını hesaplar ve `correctCount` adlı bir değişkene atar.
 
     final int incorrectCount = totalQuestions - correctCount; // Yanlış cevap sayısı
 
