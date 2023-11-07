@@ -16,11 +16,11 @@ const List<QuizQuestion> questions = [
     "Flutter nedir?",
     [
       "Bir programlama dili.",
-      "Bir mobil uygulama geliştirme framework'üdür.",
+      "Mobil geliştirme framework'üdür.",
       "Bir oyun motoru.",
       "Bir veritabanı yönetim sistemi.",
     ],
-    "Bir mobil uygulama geliştirme framework'üdür.",
+    "Mobil geliştirme framework'üdür.",
   ),
   QuizQuestion(
     "Dart programlama dili hangi şirket tarafından geliştirilmiştir?",
