@@ -4,15 +4,15 @@ import 'package:quiz_app_workshop/models/quiz_questions.dart';
 import 'package:quiz_app_workshop/result_screen.dart';
 
 class QuestionScreen extends StatefulWidget {
-  const QuestionScreen({Key? key}) : super(key: key);
+  const QuestionScreen({Key? key}) : super(key: key); // Widget'in key özelliği
 
   @override
   _QuestionScreenState createState() => _QuestionScreenState();
 }
 
 class _QuestionScreenState extends State<QuestionScreen> {
-  // QuizQuestions sınıfından bir nesne oluşturulur.
-  final quizQuestions = QuizQuestions();
+  final quizQuestions =
+      QuizQuestions(); // QuizQuestions sınıfından bir nesne oluşturulur.
   List<QuizQuestion> questions = [];
   int currentQuestionIndex = 0; // Şu anki sorunun indeksi
   int correctAnswers = 0; // Doğru cevap sayısı
@@ -24,8 +24,8 @@ class _QuestionScreenState extends State<QuestionScreen> {
     questions = quizQuestions.getQuestions();
   }
 
-  // Kullanıcının seçtiği cevapları saklamak için bir liste oluşturulur.
-  List<String> selectedAnswers = [];
+  List<String> selectedAnswers =
+      []; // Kullanıcının seçtiği cevapları saklamak için bir liste oluşturulur.
 
   // Cevabın doğruluğunu kontrol eden işlev
   void checkAnswer(String selectedAnswer) {
@@ -43,7 +43,8 @@ class _QuestionScreenState extends State<QuestionScreen> {
       });
     } else {
       // Soru metinlerini, seçilen cevapları ve doğru cevapları içeren sonuç ekranına yönlendirir.
-      final List<String> questionTexts = questions.map((q) => q.question).toList();
+      final List<String> questionTexts =
+          questions.map((q) => q.question).toList();
       Navigator.push(
         context,
         MaterialPageRoute(
@@ -66,16 +67,18 @@ class _QuestionScreenState extends State<QuestionScreen> {
     final question = questions[currentQuestionIndex];
 
     return Scaffold(
-      backgroundColor: Colors.deepPurpleAccent,
+      backgroundColor: Colors.deepPurpleAccent, // Ekranın arka plan rengi
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Padding(
-              padding: const EdgeInsets.all(16.0), // Soru metni etrafına biraz boşluk ekler.
+              padding: const EdgeInsets.all(
+                  16.0), // Soru metni etrafına biraz boşluk ekler.
               child: Text(
                 "Soru ${currentQuestionIndex + 1}: ${question.question}",
-                style: TextStyle(fontSize: 19, color: Colors.white),
+                style: TextStyle(
+                    fontSize: 19, color: Colors.white), // Soru metni stil
                 textAlign: TextAlign.center,
               ),
             ),
@@ -84,25 +87,29 @@ class _QuestionScreenState extends State<QuestionScreen> {
               children: question.answers.asMap().entries.map((entry) {
                 final index = entry.key;
                 final answer = entry.value;
-                final option = String.fromCharCode(65 + index); // A, B, C, D gibi seçenek harfini oluşturur.
+                final option = String.fromCharCode(
+                    65 + index); // A, B, C, D gibi seçenek harfini oluşturur.
 
                 return Column(
                   children: [
                     Container(
                       height: 40,
-                      margin: const EdgeInsets.all(1.0), // Cevap butonlarına biraz boşluk ekler.
+                      margin: const EdgeInsets.all(
+                          1.0), // Cevap butonlarına biraz boşluk ekler.
                       child: ElevatedButton(
                         onPressed: () {
                           checkAnswer(answer);
                         },
                         child: Text(
-                          "$option) $answer",
+                          "$option) $answer", // Seçenek metni
                           textAlign: TextAlign.center,
-                          style: const TextStyle(color: Colors.white, fontSize: 18),
+                          style: const TextStyle(
+                              color: Colors.white,
+                              fontSize: 18), // Cevap butonu stil
                         ),
                       ),
                     ),
-                    SizedBox(height: 10),
+                    SizedBox(height: 10), // Aralık ekledik
                   ],
                 );
               }).toList(),
