@@ -5,8 +5,7 @@ class ResultScreen extends StatelessWidget {
   final List<String> selectedAnswers; // Kullanıcının seçtiği cevapların listesi
   final List<String> correctAnswers; // Doğru cevapların listesi
 
-  const ResultScreen({
-    Key? key, // Widget'in key özelliği
+  const ResultScreen({ Key? key, // Widget'in key özelliği
     required this.questions, // Soruların listesi
     required this.selectedAnswers, // Kullanıcının seçtiği cevapların listesi
     required this.correctAnswers, // Doğru cevapların listesi
@@ -20,8 +19,7 @@ class ResultScreen extends StatelessWidget {
       return answer == correctAnswers[index];
     }).length; // Doğru cevap sayısı
 
-    final int incorrectCount =
-        totalQuestions - correctCount; // Yanlış cevap sayısı
+    final int incorrectCount = totalQuestions - correctCount; // Yanlış cevap sayısı
 
     return Scaffold(
       backgroundColor: Colors.deepPurpleAccent,
@@ -71,16 +69,13 @@ class ResultScreen extends StatelessWidget {
             Column(
               children: List.generate(questions.length, (index) {
                 final question = questions[index]; // Soru metni
-                final selectedAnswer =
-                    selectedAnswers[index]; // Kullanıcının seçtiği cevap.
-                final isCorrect = selectedAnswer ==
-                    correctAnswers[index]; // Cevabın doğruluğunu kontrol eder.
+                final selectedAnswer = selectedAnswers[index]; // Kullanıcının seçtiği cevap.
+                final isCorrect = selectedAnswer == correctAnswers[index]; // Cevabın doğruluğunu kontrol eder.
 
                 return Card(
                   color: isCorrect
                       ? Colors.transparent
-                      : Colors
-                          .transparent, // Doğru cevap, yanlış cevap arka plan rengi
+                      : Colors.transparent, // Doğru cevap, yanlış cevap arka plan rengi
                   child: ListTile(
                     title: Text(
                       question,
@@ -91,10 +86,8 @@ class ResultScreen extends StatelessWidget {
                       style: TextStyle(fontSize: 16, color: Colors.white),
                     ),
                     leading: isCorrect
-                        ? Icon(Icons.check,
-                            color: Colors.green) // Doğru cevap işareti
-                        : Icon(Icons.close,
-                            color: Colors.red), // Yanlış cevap işareti
+                        ? Icon(Icons.check, color: Colors.green) // Doğru cevap işareti
+                        : Icon(Icons.close, color: Colors.red), // Yanlış cevap işareti
                   ),
                 );
               }),
@@ -112,8 +105,7 @@ class ResultScreen extends StatelessWidget {
               ),
               style: OutlinedButton.styleFrom(
                 foregroundColor: Colors.white, // Yazı rengi
-                padding:
-                    const EdgeInsets.fromLTRB(20, 15, 20, 15), // Kenar boşluğu
+                padding: const EdgeInsets.fromLTRB(20, 15, 20, 15), // Kenar boşluğu
               ),
             ),
           ],

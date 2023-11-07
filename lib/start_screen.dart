@@ -38,8 +38,7 @@ class StartScreen extends StatelessWidget {
               onPressed: () {
                 // Navigator kullanarak başka bir ekranı başlatır.
                 Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => QuestionScreen()),
+                  context, MaterialPageRoute(builder: (context) => QuestionScreen()),
                 );
               },
               icon: const Icon(Icons.arrow_right_alt), // Düğme ikonu.
