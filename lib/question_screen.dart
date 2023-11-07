@@ -11,31 +11,38 @@ class QuestionScreen extends StatefulWidget {
 }
 
 class _QuestionScreenState extends State<QuestionScreen> {
+  // QuizQuestions sınıfından bir nesne oluşturulur.
   final quizQuestions = QuizQuestions();
   List<QuizQuestion> questions = [];
-  int currentQuestionIndex = 0;
-  int correctAnswers = 0;
+  int currentQuestionIndex = 0; // Şu anki sorunun indeksi
+  int correctAnswers = 0; // Doğru cevap sayısı
 
   @override
   void initState() {
     super.initState();
+    // Soruları almak için 'quizQuestions' nesnesini kullanır.
     questions = quizQuestions.getQuestions();
   }
 
+  // Kullanıcının seçtiği cevapları saklamak için bir liste oluşturulur.
   List<String> selectedAnswers = [];
 
+  // Cevabın doğruluğunu kontrol eden işlev
   void checkAnswer(String selectedAnswer) {
+    // Seçilen cevap doğruysa doğru cevap sayısını artırır.
     if (questions[currentQuestionIndex].correctAnswer == selectedAnswer) {
       setState(() {
         correctAnswers++;
       });
     }
 
+    // Eğer daha fazla soru varsa bir sonraki soruya geçer, aksi takdirde sonuç ekranına yönlendirir.
     if (currentQuestionIndex < questions.length - 1) {
       setState(() {
         currentQuestionIndex++;
       });
     } else {
+      // Soru metinlerini, seçilen cevapları ve doğru cevapları içeren sonuç ekranına yönlendirir.
       final List<String> questionTexts = questions.map((q) => q.question).toList();
       Navigator.push(
         context,
@@ -49,11 +56,13 @@ class _QuestionScreenState extends State<QuestionScreen> {
       );
     }
 
+    // Seçilen cevapları saklamak için listeye ekler.
     selectedAnswers.add(selectedAnswer);
   }
 
   @override
   Widget build(BuildContext context) {
+    // Şu anki soruyu alır.
     final question = questions[currentQuestionIndex];
 
     return Scaffold(
@@ -63,7 +72,7 @@ class _QuestionScreenState extends State<QuestionScreen> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Padding(
-              padding: const EdgeInsets.all(16.0), // Soru etrafına padding ekledik
+              padding: const EdgeInsets.all(16.0), // Soru metni etrafına biraz boşluk ekler.
               child: Text(
                 "Soru ${currentQuestionIndex + 1}: ${question.question}",
                 style: TextStyle(fontSize: 19, color: Colors.white),
@@ -75,13 +84,13 @@ class _QuestionScreenState extends State<QuestionScreen> {
               children: question.answers.asMap().entries.map((entry) {
                 final index = entry.key;
                 final answer = entry.value;
-                final option = String.fromCharCode(65 + index);
+                final option = String.fromCharCode(65 + index); // A, B, C, D gibi seçenek harfini oluşturur.
 
                 return Column(
                   children: [
                     Container(
                       height: 40,
-                      margin: const EdgeInsets.all(1.0), // Cevap butonlarına margin ekledik
+                      margin: const EdgeInsets.all(1.0), // Cevap butonlarına biraz boşluk ekler.
                       child: ElevatedButton(
                         onPressed: () {
                           checkAnswer(answer);

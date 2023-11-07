@@ -1,13 +1,16 @@
+// QuizQuestion sınıfı tanımlanır. Bu sınıf, bir soruyu, cevapları ve doğru cevabı temsil eder.
 class QuizQuestion {
-  final String question;
-  final List<String> answers;
-  final String correctAnswer;
+  final String question; // Soru metni
+  final List<String> answers; // Cevapların listesi
+  final String correctAnswer; // Doğru cevap
 
+  // QuizQuestion sınıfının constructor'ı, soru, cevaplar ve doğru cevap alır.
   const QuizQuestion(this.question, this.answers, this.correctAnswer);
 }
 
+// Dizi içinde çeşitli sorular ve bunların cevapları oluşturulur.
 const List<QuizQuestion> questions = [
-    QuizQuestion(
+  QuizQuestion(
     "Aşağıdakilerden hangisi flutter'da state'i update eder?",
     ["constructor", "class", "setState", "statelesswidget"],
     "setState",
@@ -53,3 +56,4 @@ const List<QuizQuestion> questions = [
     "Scaffold",
   ),
 ];
+
