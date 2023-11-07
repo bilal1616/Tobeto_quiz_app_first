@@ -25,8 +25,7 @@ class _QuestionScreenState extends State<QuestionScreen> {
     questions = quizQuestions.getQuestions();
   }
 
-  List<String> selectedAnswers =
-      []; // Kullanıcının seçtiği cevapları saklamak için bir liste oluşturulur.
+  List<String> selectedAnswers = []; // Kullanıcının seçtiği cevapları saklamak için bir liste oluşturulur.
 
   // Cevabın doğruluğunu kontrol eden işlev
   void checkAnswer(String selectedAnswer) {
