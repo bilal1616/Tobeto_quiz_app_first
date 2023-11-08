@@ -73,33 +73,25 @@ class ResultScreen extends StatelessWidget {
             Column(
               children: List.generate(questions.length, (index) {
                 final question = questions[index]; // Soru metni
-                final selectedAnswer =
-                    selectedAnswers[index]; // Kullanıcının seçtiği cevap.
-                final isCorrect = selectedAnswer ==
-                    correctAnswers[index]; // Cevabın doğruluğunu kontrol eder.
-                final correctAnswer = correctAnswers[index];
+                final selectedAnswer = selectedAnswers[index]; // Kullanıcının seçtiği cevap.
+                final isCorrect = selectedAnswer == correctAnswers[index]; // Cevabın doğruluğunu kontrol eder.
+                final correctAnswer = correctAnswers[index]; // Cevapları Ekrana yazar.
 
                 return Card(
                   color: isCorrect
                       ? Colors.transparent
-                      : Colors
-                          .transparent, // Doğru cevap, yanlış cevap arka plan rengi
+                      : Colors.transparent, // Doğru cevap, yanlış cevap arka plan rengi
                   child: ListTile(
                     title: Text(
                       question,
                       style: TextStyle(fontSize: 16, color: Colors.white),
                     ),
                     subtitle: Text(
-                      isCorrect
-                          ? "Doğru Cevap $selectedAnswer"
-                          : "Cevabın Doğrusu $correctAnswer",
+                      isCorrect ? "Doğru Cevap $selectedAnswer" : "Cevabın Doğrusu $correctAnswer",
                       style: TextStyle(fontSize: 16, color: Colors.white),
                     ),
-                    leading: isCorrect
-                        ? Icon(Icons.check,
-                            color: Colors.green) // Doğru cevap işareti
-                        : Icon(Icons.close,
-                            color: Colors.red), // Yanlış cevap işareti
+                    leading: isCorrect ? Icon(Icons.check, color: Colors.green) // Doğru cevap işareti
+                        : Icon(Icons.close, color: Colors.red), // Yanlış cevap işareti
                   ),
                 );
               }),
@@ -117,8 +109,7 @@ class ResultScreen extends StatelessWidget {
               ),
               style: OutlinedButton.styleFrom(
                 foregroundColor: Colors.white, // Yazı rengi
-                padding:
-                    const EdgeInsets.fromLTRB(20, 15, 20, 15), // Kenar boşluğu
+                padding: const EdgeInsets.fromLTRB(20, 15, 20, 15), // Kenar boşluğu
               ),
             ),
           ],
