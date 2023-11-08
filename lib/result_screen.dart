@@ -87,7 +87,7 @@ class ResultScreen extends StatelessWidget {
                       style: TextStyle(fontSize: 16, color: Colors.white),
                     ),
                     subtitle: Text(
-                      isCorrect ? "Doğru Cevap $selectedAnswer" : "Cevabın Doğrusu $correctAnswer",
+                      isCorrect ? "Doğru Cevap: $selectedAnswer" : "Cevabın Doğrusu: $correctAnswer",
                       style: TextStyle(fontSize: 16, color: Colors.white),
                     ),
                     leading: isCorrect ? Icon(Icons.check, color: Colors.green) // Doğru cevap işareti
